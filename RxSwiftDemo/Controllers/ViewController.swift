@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         //Bind the model selected handler
         myTableView.rx.modelSelected(MyProduct.self).subscribe(onNext: { myProductObject in
             let myProductDetailsVC = self.storyboard?.instantiateViewController(identifier: "MyProductDetailsScene") as! MyProductDetailViewController
-            myProductDetailsVC.myProductImageName = myProductObject.image
+            myProductDetailsVC.myProductImageName.accept(myProductObject.image)
             self.navigationController?.pushViewController(myProductDetailsVC, animated: true)
         }).disposed(by: disposeBag)
 
