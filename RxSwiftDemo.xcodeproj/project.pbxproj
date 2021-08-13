@@ -16,6 +16,7 @@
 		016E66CC26C52F5C004675C0 /* MyProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66CB26C52F5C004675C0 /* MyProduct.swift */; };
 		016E66CE26C52FF6004675C0 /* MyProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66CD26C52FF6004675C0 /* MyProductDetailViewController.swift */; };
 		016E66D126C55C7D004675C0 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D026C55C7D004675C0 /* SectionModel.swift */; };
+		016E66D326C63FF1004675C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D226C63FF1004675C0 /* LoginViewController.swift */; };
 		8C58C9FA379B477EB8505286 /* Pods_RxSwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CE6B7AA8CFC0C4BE7E4363 /* Pods_RxSwiftDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		016E66CB26C52F5C004675C0 /* MyProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProduct.swift; sourceTree = "<group>"; };
 		016E66CD26C52FF6004675C0 /* MyProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductDetailViewController.swift; sourceTree = "<group>"; };
 		016E66D026C55C7D004675C0 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		016E66D226C63FF1004675C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7AEA722E7CCADCF5173DC411 /* Pods-RxSwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDemo/Pods-RxSwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C10006DF8DCE39E73BFB665 /* Pods-RxSwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftDemo/Pods-RxSwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		98CE6B7AA8CFC0C4BE7E4363 /* Pods_RxSwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 			children = (
 				016E66BA26C50BBB004675C0 /* ViewController.swift */,
 				016E66CD26C52FF6004675C0 /* MyProductDetailViewController.swift */,
+				016E66D226C63FF1004675C0 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016E66D326C63FF1004675C0 /* LoginViewController.swift in Sources */,
 				016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */,
 				016E66CC26C52F5C004675C0 /* MyProduct.swift in Sources */,
 				016E66CE26C52FF6004675C0 /* MyProductDetailViewController.swift in Sources */,
