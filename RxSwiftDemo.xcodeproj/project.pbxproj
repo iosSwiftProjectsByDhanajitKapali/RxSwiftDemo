@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,12 @@
 		016E66BE26C50BBB004675C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016E66BC26C50BBB004675C0 /* Main.storyboard */; };
 		016E66C026C50BC4004675C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 016E66BF26C50BC4004675C0 /* Assets.xcassets */; };
 		016E66C326C50BC4004675C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016E66C126C50BC4004675C0 /* LaunchScreen.storyboard */; };
+		016E66D626C6715B004675C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D526C6715A004675C0 /* MainViewController.swift */; };
+		016E66D826C67176004675C0 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D726C67176004675C0 /* UserDetailViewController.swift */; };
+		016E66DA26C67195004675C0 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D926C67195004675C0 /* UserCell.swift */; };
+		016E66DD26C671C9004675C0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66DC26C671C9004675C0 /* DataModel.swift */; };
+		016E66E026C67237004675C0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66DF26C67237004675C0 /* APIRequest.swift */; };
+		016E66E326C68244004675C0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66E226C68244004675C0 /* UserViewModel.swift */; };
 		8C58C9FA379B477EB8505286 /* Pods_RxSwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CE6B7AA8CFC0C4BE7E4363 /* Pods_RxSwiftDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +31,12 @@
 		016E66BF26C50BC4004675C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		016E66C226C50BC4004675C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		016E66C426C50BC4004675C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		016E66D526C6715A004675C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		016E66D726C67176004675C0 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		016E66D926C67195004675C0 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		016E66DC26C671C9004675C0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		016E66DF26C67237004675C0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		016E66E226C68244004675C0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7AEA722E7CCADCF5173DC411 /* Pods-RxSwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftDemo/Pods-RxSwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8C10006DF8DCE39E73BFB665 /* Pods-RxSwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftDemo/Pods-RxSwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		98CE6B7AA8CFC0C4BE7E4363 /* Pods_RxSwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +75,10 @@
 		016E66B526C50BBB004675C0 /* RxSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				016E66E126C68232004675C0 /* ViewModel */,
+				016E66DE26C6721A004675C0 /* Networking */,
+				016E66DB26C671B1004675C0 /* Model */,
+				016E66D426C67134004675C0 /* View */,
 				016E66B626C50BBB004675C0 /* AppDelegate.swift */,
 				016E66B826C50BBB004675C0 /* SceneDelegate.swift */,
 				016E66BA26C50BBB004675C0 /* ViewController.swift */,
@@ -74,13 +90,46 @@
 			path = RxSwiftDemo;
 			sourceTree = "<group>";
 		};
+		016E66D426C67134004675C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				016E66D526C6715A004675C0 /* MainViewController.swift */,
+				016E66D726C67176004675C0 /* UserDetailViewController.swift */,
+				016E66D926C67195004675C0 /* UserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		016E66DB26C671B1004675C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				016E66DC26C671C9004675C0 /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		016E66DE26C6721A004675C0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				016E66DF26C67237004675C0 /* APIRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		016E66E126C68232004675C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				016E66E226C68244004675C0 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B8A99A420BF0040BB0A82397 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				8C10006DF8DCE39E73BFB665 /* Pods-RxSwiftDemo.debug.xcconfig */,
 				7AEA722E7CCADCF5173DC411 /* Pods-RxSwiftDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,9 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016E66DD26C671C9004675C0 /* DataModel.swift in Sources */,
 				016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */,
+				016E66D826C67176004675C0 /* UserDetailViewController.swift in Sources */,
+				016E66DA26C67195004675C0 /* UserCell.swift in Sources */,
 				016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */,
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
+				016E66E026C67237004675C0 /* APIRequest.swift in Sources */,
+				016E66E326C68244004675C0 /* UserViewModel.swift in Sources */,
+				016E66D626C6715B004675C0 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
