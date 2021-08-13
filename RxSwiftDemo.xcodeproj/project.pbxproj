@@ -65,16 +65,48 @@
 		016E66B526C50BBB004675C0 /* RxSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				016E66B626C50BBB004675C0 /* AppDelegate.swift */,
-				016E66B826C50BBB004675C0 /* SceneDelegate.swift */,
-				016E66BA26C50BBB004675C0 /* ViewController.swift */,
-				016E66BC26C50BBB004675C0 /* Main.storyboard */,
+				016E670726C69905004675C0 /* Coordinator */,
+				016E670626C698F0004675C0 /* Lifecycle */,
+				01E4CB2926C69A3900332E20 /* View */,
+				016E670826C69922004675C0 /* Storyboards */,
 				016E66BF26C50BC4004675C0 /* Assets.xcassets */,
-				016E66C126C50BC4004675C0 /* LaunchScreen.storyboard */,
 				016E66C426C50BC4004675C0 /* Info.plist */,
-				016E670426C695F3004675C0 /* AppCoordinator.swift */,
 			);
 			path = RxSwiftDemo;
+			sourceTree = "<group>";
+		};
+		016E670626C698F0004675C0 /* Lifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				016E66B626C50BBB004675C0 /* AppDelegate.swift */,
+				016E66B826C50BBB004675C0 /* SceneDelegate.swift */,
+			);
+			path = Lifecycle;
+			sourceTree = "<group>";
+		};
+		016E670726C69905004675C0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				016E670426C695F3004675C0 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		016E670826C69922004675C0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				016E66BC26C50BBB004675C0 /* Main.storyboard */,
+				016E66C126C50BC4004675C0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		01E4CB2926C69A3900332E20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				016E66BA26C50BBB004675C0 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B8A99A420BF0040BB0A82397 /* Pods */ = {
