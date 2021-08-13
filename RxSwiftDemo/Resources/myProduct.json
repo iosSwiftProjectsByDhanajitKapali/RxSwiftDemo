@@ -1,0 +1,9 @@
+
+[
+    {"name" : "PaperPlane","image" : "paperplane"},
+    {"name" : "PaperPlabe", "image": "paperplane.fill" },
+    {"name" : "Trash", "image" : "trash" },
+    {"name" : "Trash", "image" : "trash.fill"},
+    {"name" : "Calendar", "image": "calendar"},
+    {"name" : "Calendar", "image" : "calendar.circle.fill"}
+]
