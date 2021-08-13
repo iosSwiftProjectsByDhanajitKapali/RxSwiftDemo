@@ -8,7 +8,11 @@
 import Foundation
 import RxSwift
 
-class NetworkManager{
+protocol NetworkManagerProtocol{
+    func fetchData() -> Observable<[MyProduct]>
+}
+
+class NetworkManager : NetworkManagerProtocol{
     
     func fetchData() -> Observable<[MyProduct]>{
         

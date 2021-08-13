@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,13 +15,43 @@
                     <view key="view" contentMode="scaleToFill" id="y0i-dO-Wg1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ao5-w8-VOm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" id="BA2-ow-8w0">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BA2-ow-8w0" id="Msc-pF-5Y3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HQw-jM-lcc"/>
                         <color key="backgroundColor" red="0.95733481649999996" green="0.9665831923" blue="0.99675291779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ao5-w8-VOm" firstAttribute="top" secondItem="HQw-jM-lcc" secondAttribute="top" id="LmF-sY-du8"/>
+                            <constraint firstItem="HQw-jM-lcc" firstAttribute="trailing" secondItem="Ao5-w8-VOm" secondAttribute="trailing" id="St0-Wc-yRG"/>
+                            <constraint firstItem="Ao5-w8-VOm" firstAttribute="leading" secondItem="HQw-jM-lcc" secondAttribute="leading" id="ToY-Vh-Ffh"/>
+                            <constraint firstItem="HQw-jM-lcc" firstAttribute="bottom" secondItem="Ao5-w8-VOm" secondAttribute="bottom" id="rq1-eU-7qd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myTableView" destination="Ao5-w8-VOm" id="V5U-Mh-8hN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFT-IT-ky7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5999" y="-1004"/>
+            <point key="canvasLocation" x="-7957" y="-1134"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
