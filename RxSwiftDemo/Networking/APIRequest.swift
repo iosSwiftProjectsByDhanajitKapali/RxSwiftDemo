@@ -21,7 +21,7 @@ class APIRequest: APIRequestProtocol {
     func callAPI<T: Codable>(forBaseUrlString : String, resultType:T.Type) -> Observable<T> {
         
         //create an observable and emit the state as per response.
-        return Observable<T>.create { observer in
+        return Observable<T>.create { observer -> Disposable in
             
             //conver the URL String to URL
             guard let baseURL = URL(string: forBaseUrlString) else{
