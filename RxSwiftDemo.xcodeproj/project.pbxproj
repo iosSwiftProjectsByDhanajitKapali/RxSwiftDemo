@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014100A226CA6041000A07C1 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014100A026CA6041000A07C1 /* UserCell.swift */; };
+		014100A326CA6041000A07C1 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014100A126CA6041000A07C1 /* UserCell.xib */; };
+		014100A626CA62ED000A07C1 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014100A526CA62ED000A07C1 /* UIImageExtension.swift */; };
 		016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B626C50BBB004675C0 /* AppDelegate.swift */; };
 		016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B826C50BBB004675C0 /* SceneDelegate.swift */; };
 		016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66BA26C50BBB004675C0 /* ViewController.swift */; };
@@ -15,7 +18,6 @@
 		016E66C326C50BC4004675C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016E66C126C50BC4004675C0 /* LaunchScreen.storyboard */; };
 		016E66D626C6715B004675C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D526C6715A004675C0 /* MainViewController.swift */; };
 		016E66D826C67176004675C0 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D726C67176004675C0 /* UserDetailViewController.swift */; };
-		016E66DA26C67195004675C0 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66D926C67195004675C0 /* UserCell.swift */; };
 		016E66DD26C671C9004675C0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66DC26C671C9004675C0 /* DataModel.swift */; };
 		016E66E026C67237004675C0 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66DF26C67237004675C0 /* APIRequest.swift */; };
 		016E66E326C68244004675C0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66E226C68244004675C0 /* UserViewModel.swift */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		014100A026CA6041000A07C1 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		014100A126CA6041000A07C1 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		014100A526CA62ED000A07C1 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		016E66B326C50BBB004675C0 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016E66B626C50BBB004675C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		016E66B826C50BBB004675C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +38,6 @@
 		016E66C426C50BC4004675C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		016E66D526C6715A004675C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		016E66D726C67176004675C0 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
-		016E66D926C67195004675C0 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		016E66DC26C671C9004675C0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		016E66DF26C67237004675C0 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		016E66E226C68244004675C0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -54,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		014100A426CA62D6000A07C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				014100A526CA62ED000A07C1 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		016E66AA26C50BBB004675C0 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +87,7 @@
 		016E66B526C50BBB004675C0 /* RxSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				014100A426CA62D6000A07C1 /* Extensions */,
 				016E66E126C68232004675C0 /* ViewModel */,
 				016E66DE26C6721A004675C0 /* Networking */,
 				016E66DB26C671B1004675C0 /* Model */,
@@ -95,7 +108,8 @@
 			children = (
 				016E66D526C6715A004675C0 /* MainViewController.swift */,
 				016E66D726C67176004675C0 /* UserDetailViewController.swift */,
-				016E66D926C67195004675C0 /* UserCell.swift */,
+				014100A026CA6041000A07C1 /* UserCell.swift */,
+				014100A126CA6041000A07C1 /* UserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014100A326CA6041000A07C1 /* UserCell.xib in Resources */,
 				016E66C326C50BC4004675C0 /* LaunchScreen.storyboard in Resources */,
 				016E66C026C50BC4004675C0 /* Assets.xcassets in Resources */,
 				016E66BE26C50BBB004675C0 /* Main.storyboard in Resources */,
@@ -258,9 +273,10 @@
 				016E66DD26C671C9004675C0 /* DataModel.swift in Sources */,
 				016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */,
 				016E66D826C67176004675C0 /* UserDetailViewController.swift in Sources */,
-				016E66DA26C67195004675C0 /* UserCell.swift in Sources */,
+				014100A626CA62ED000A07C1 /* UIImageExtension.swift in Sources */,
 				016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */,
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
+				014100A226CA6041000A07C1 /* UserCell.swift in Sources */,
 				016E66E026C67237004675C0 /* APIRequest.swift in Sources */,
 				016E66E326C68244004675C0 /* UserViewModel.swift in Sources */,
 				016E66D626C6715B004675C0 /* MainViewController.swift in Sources */,

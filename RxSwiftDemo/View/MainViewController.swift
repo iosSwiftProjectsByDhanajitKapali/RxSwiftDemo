@@ -26,6 +26,10 @@ class MainViewController: UIViewController {
 
         userViewModelInstance.fetchUserList()
         controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "UserDetailController") as UserDetailViewController
+        
+        let nib = UINib(nibName: "UserCell", bundle: nil)
+        tableview.register(nib, forCellReuseIdentifier: "CellIdentifier")
+
         bindUI()
         
     }
@@ -43,8 +47,11 @@ class MainViewController: UIViewController {
         tableview.tableFooterView = UIView()
         
         //This binds the table datasource with tableview and also connects the cell to it.
-        filteredList.bind(to: tableview.rx.items(cellIdentifier: "CellIdentifier", cellType: UserCell.self)) { row, model, cell in
-            cell.configureCell(userDetail: model)
+        filteredList.bind(to: tableview.rx.items) { (tv, row, item) -> UITableViewCell in
+            //cell.configureCell(userDetail: model)
+            let cell = tv.dequeueReusableCell(withIdentifier: "CellIdentifier", for: IndexPath.init(row: row, section: 0)) as! UserCell
+            cell.configureCell(userDetail: item)
+            return cell
         }.disposed(by: bag)
         
         //Replacement to didSelectRowAt() of tableview delegate functions
