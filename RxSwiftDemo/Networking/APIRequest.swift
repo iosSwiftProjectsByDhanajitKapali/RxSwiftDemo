@@ -10,21 +10,29 @@ import RxCocoa
 import RxSwift
 
 protocol APIRequestProtocol {
-     func callAPI<T: Codable>() -> Observable<T>
+     func callAPI<T: Codable>(forBaseUrlString : String, resultType:T.Type) -> Observable<T>
 }
 
 class APIRequest: APIRequestProtocol {
-    let baseURL = URL(string: "https://reqres.in/api/users")!
+    //let baseURL = URL(string: "https://reqres.in/api/users")!
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask? = nil
     
-    func callAPI<T: Codable>() -> Observable<T> {
+    func callAPI<T: Codable>(forBaseUrlString : String, resultType:T.Type) -> Observable<T> {
+        
         //create an observable and emit the state as per response.
         return Observable<T>.create { observer in
-            self.dataTask = self.session.dataTask(with: self.baseURL, completionHandler: { (data, response, error) in
+            
+            //conver the URL String to URL
+            guard let baseURL = URL(string: forBaseUrlString) else{
+                observer.onError(NetworkingError.URL_PARSING_ERROR)
+                return Disposables.create { }
+            }
+            
+            self.dataTask = self.session.dataTask(with: baseURL, completionHandler: { (data, response, error) in
                 do {
-                    let model: DataModel = try JSONDecoder().decode(DataModel.self, from: data ?? Data())
-                    observer.onNext(model.data as! T)
+                    let model = try JSONDecoder().decode(T.self, from: data ?? Data())
+                    observer.onNext(model)
                 } catch let error {
                     observer.onError(error)
                 }
@@ -36,4 +44,8 @@ class APIRequest: APIRequestProtocol {
             }
         }
     }
+}
+
+enum NetworkingError : Error{
+    case URL_PARSING_ERROR
 }

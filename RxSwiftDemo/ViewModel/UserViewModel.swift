@@ -20,7 +20,8 @@ struct UserDetailModel {
 class UserViewModel {
     
     let request = APIRequest()
-    var users: Observable<[UserDetail]>?
+    var apiResponse : Observable<DataModel>?
+    //var users: Observable<[UserDetail]>?
     private let userViewModel = BehaviorRelay<[UserDetailModel]>(value: [])
     var userViewModelObserver: Observable<[UserDetailModel]> {
         return userViewModel.asObservable()
@@ -29,20 +30,42 @@ class UserViewModel {
     private let disposeBag = DisposeBag()
     
     func fetchUserList() {
-        users = request.callAPI()
-        users?.subscribe(onNext: { (value) in
+        apiResponse = request.callAPI(forBaseUrlString: "https://reqres.in/api/users", resultType: DataModel.self)
+        apiResponse?.subscribe(onNext: {
+            apiResponseData in
+            
             var userViewModelArray = [UserDetailModel]()
-            for index in 0..<value.count {
-                var user = UserDetailModel()
-                user.userData = value[index]
-                userViewModelArray.append(user)
+            if let users = apiResponseData.data{
+                for index in 0..<users.count {
+                    var user = UserDetailModel()
+                    user.userData = users[index]
+                    userViewModelArray.append(user)
+                }
+                self.userViewModel.accept(userViewModelArray)
             }
-            self.userViewModel.accept(userViewModelArray)
+            
         }, onError: { (error) in
             _ = self.userViewModel.catch { (error) in
                 Observable.empty()
             }
             print(error.localizedDescription)
+        
         }).disposed(by: disposeBag)
-    }
+        
+//        users?.subscribe(onNext: { (value) in
+//            var userViewModelArray = [UserDetailModel]()
+//            for index in 0..<value.count {
+//                var user = UserDetailModel()
+//                user.userData = value[index]
+//                userViewModelArray.append(user)
+//            }
+//            self.userViewModel.accept(userViewModelArray)
+//        }, onError: { (error) in
+//            _ = self.userViewModel.catch { (error) in
+//                Observable.empty()
+//            }
+//            print(error.localizedDescription)
+//        }).disposed(by: disposeBag)
+        
+    } //:fetchUserList()
 }
