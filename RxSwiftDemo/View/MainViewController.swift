@@ -29,7 +29,8 @@ class MainViewController: UIViewController {
         
         let nib = UINib(nibName: "UserCell", bundle: nil)
         tableview.register(nib, forCellReuseIdentifier: "CellIdentifier")
-
+        tableview.rowHeight = 200
+        
         bindUI()
         
     }
