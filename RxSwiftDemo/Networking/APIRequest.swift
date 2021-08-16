@@ -14,7 +14,7 @@ protocol APIRequestProtocol {
 }
 
 class APIRequest: APIRequestProtocol {
-    //let baseURL = URL(string: "https://reqres.in/api/users")!
+    
     let session = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask? = nil
     

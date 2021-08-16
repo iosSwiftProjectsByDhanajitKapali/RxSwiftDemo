@@ -21,7 +21,6 @@ class UserViewModel {
     
     let request = APIRequest()
     var apiResponse : Observable<DataModel>?
-    //var users: Observable<[UserDetail]>?
     private let userViewModel = BehaviorRelay<[UserDetailModel]>(value: [])
     var userViewModelObserver: Observable<[UserDetailModel]> {
         return userViewModel.asObservable()
@@ -51,21 +50,6 @@ class UserViewModel {
             print(error.localizedDescription)
         
         }).disposed(by: disposeBag)
-        
-//        users?.subscribe(onNext: { (value) in
-//            var userViewModelArray = [UserDetailModel]()
-//            for index in 0..<value.count {
-//                var user = UserDetailModel()
-//                user.userData = value[index]
-//                userViewModelArray.append(user)
-//            }
-//            self.userViewModel.accept(userViewModelArray)
-//        }, onError: { (error) in
-//            _ = self.userViewModel.catch { (error) in
-//                Observable.empty()
-//            }
-//            print(error.localizedDescription)
-//        }).disposed(by: disposeBag)
-        
+
     } //:fetchUserList()
 }
