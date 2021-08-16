@@ -20,6 +20,7 @@ class UserCell: UITableViewCell {
         if let userImageUrl = userDetail.userData.avatar{
             if let url = URL(string: userImageUrl){
                 userImage.load(url: url)
+                //userImage.frame = CGRect(x: 0, y: 0, width: 150, height: 100)
             }
         }
         if userDetail.isFavorite.value {
