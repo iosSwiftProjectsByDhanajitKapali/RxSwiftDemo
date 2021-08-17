@@ -33,14 +33,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        registerNibInMyCollectionView()
-        
-        myDataSource.bind(to: myCollectionView.rx.items(cellIdentifier: "myCollectionViewCell", cellType: MyCollectionViewCell.self)){
-            indexPath, title, cell in
-            cell.myImageView.image = UIImage(systemName: title)
-        }.disposed(by: disposeBag)
-        
-        
         
         
         
@@ -53,6 +45,15 @@ class ViewController: UIViewController {
 
 //MARK: - Test Various UI elements with Rx
 extension ViewController{
+    
+    func testCollectionView(){
+        registerNibInMyCollectionView()
+        
+        myDataSource.bind(to: myCollectionView.rx.items(cellIdentifier: "myCollectionViewCell", cellType: MyCollectionViewCell.self)){
+            indexPath, title, cell in
+            cell.myImageView.image = UIImage(systemName: title)
+        }.disposed(by: disposeBag)
+    }
     
     func testStepper(){
         //cahnge the slider value on pressing the stepper
