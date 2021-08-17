@@ -21,6 +21,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8Tt-r4-esY">
+                                <rect key="frame" x="0.0" y="107" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQE-LZ-8vu">
                                 <rect key="frame" x="151" y="49" width="112.5" height="48"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
@@ -88,10 +92,12 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8Tt-r4-esY">
-                                <rect key="frame" x="0.0" y="107" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="IeA-EE-b9i">
+                                <rect key="frame" x="137" y="415" width="140" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="BH6-Ej-gMW"/>
+                                </constraints>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.95733481649999996" green="0.9665831923" blue="0.99675291779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,9 +117,11 @@
                             <constraint firstItem="ay4-EL-rn2" firstAttribute="top" secondItem="Jj5-nq-Jn7" secondAttribute="bottom" constant="20" id="IFQ-pW-ott"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6y2-To-Wew" secondAttribute="trailing" constant="20" id="Ip0-zL-MRl"/>
                             <constraint firstItem="8Tt-r4-esY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JPg-5A-xbJ"/>
+                            <constraint firstItem="IeA-EE-b9i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kt3-sK-pRe"/>
                             <constraint firstItem="pjq-0W-rIi" firstAttribute="top" secondItem="EnA-de-N1N" secondAttribute="bottom" constant="85" id="NNc-mW-ORj"/>
                             <constraint firstItem="aNa-8B-an3" firstAttribute="top" secondItem="VPV-hv-IbL" secondAttribute="bottom" constant="10" id="SM3-z9-Bff"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wt8-zD-Xlj" secondAttribute="trailing" constant="20" id="Sc5-zi-HIQ"/>
+                            <constraint firstItem="IeA-EE-b9i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="WNc-fd-A6x"/>
                             <constraint firstItem="Jj5-nq-Jn7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Ycr-yN-hHQ"/>
                             <constraint firstItem="8Tt-r4-esY" firstAttribute="top" secondItem="eQE-LZ-8vu" secondAttribute="bottom" constant="10" id="Z1z-XS-XUp"/>
                             <constraint firstItem="wt8-zD-Xlj" firstAttribute="top" secondItem="6y2-To-Wew" secondAttribute="bottom" constant="20" id="bWR-vF-Wx1"/>
@@ -128,6 +136,7 @@
                             <constraint firstItem="VPV-hv-IbL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oO1-kd-ZHw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="deO-bW-Uu0" secondAttribute="trailing" constant="10" id="q5c-Ko-3YM"/>
                             <constraint firstItem="pjq-0W-rIi" firstAttribute="top" secondItem="wt8-zD-Xlj" secondAttribute="bottom" constant="20" id="qHq-Bp-5Ef"/>
+                            <constraint firstItem="6y2-To-Wew" firstAttribute="top" secondItem="IeA-EE-b9i" secondAttribute="bottom" constant="20" id="trr-R8-bFB"/>
                             <constraint firstItem="deO-bW-Uu0" firstAttribute="top" secondItem="aNa-8B-an3" secondAttribute="bottom" constant="10" id="vHw-v0-awt"/>
                         </constraints>
                     </view>
@@ -135,6 +144,7 @@
                         <outlet property="myActivityIndicatorView" destination="EnA-de-N1N" id="Aw2-Gd-Jcr"/>
                         <outlet property="myButton" destination="pjq-0W-rIi" id="ERJ-LT-NNb"/>
                         <outlet property="myCollectionView" destination="6y2-To-Wew" id="0nL-l0-s4y"/>
+                        <outlet property="myDatePicker" destination="IeA-EE-b9i" id="Yai-o8-b6v"/>
                         <outlet property="myImageView" destination="wt8-zD-Xlj" id="2GS-Ev-058"/>
                         <outlet property="myProgressView" destination="Jj5-nq-Jn7" id="baw-Dp-WSM"/>
                         <outlet property="mySearchBar" destination="8Tt-r4-esY" id="RhK-39-PRm"/>

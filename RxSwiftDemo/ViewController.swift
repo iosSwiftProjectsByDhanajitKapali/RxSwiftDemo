@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet var myStepper: UIStepper!
     @IBOutlet var mySegmentControl: UISegmentedControl!
     @IBOutlet var myCollectionView: UICollectionView!
+    @IBOutlet var myDatePicker: UIDatePicker!
     
     private let disposeBag = DisposeBag()
     
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
         
         
     } //:viewDidLoad()
@@ -53,6 +54,14 @@ extension ViewController{
             indexPath, title, cell in
             cell.myImageView.image = UIImage(systemName: title)
         }.disposed(by: disposeBag)
+    }
+    
+    func testDatePicker(){
+        myDatePicker.rx.value.subscribe(onNext: {
+            theDate in
+            print(theDate)
+        }).disposed(by: disposeBag)
+        
     }
     
     func testStepper(){
