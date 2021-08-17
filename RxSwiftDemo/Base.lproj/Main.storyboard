@@ -60,10 +60,20 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HKk-i2-Wgp">
                                 <rect key="frame" x="313" y="816" width="51" height="31"/>
                             </switch>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EnA-de-N1N">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="EnA-de-N1N">
                                 <rect key="frame" x="188.5" y="688" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i0I-My-Zbx">
+                                <rect key="frame" x="10" y="816" width="131" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-EL-rn2">
+                                <rect key="frame" x="160" y="357" width="94" height="32"/>
+                            </stepper>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8Tt-r4-esY">
                                 <rect key="frame" x="0.0" y="107" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -75,12 +85,15 @@
                             <constraint firstItem="aNa-8B-an3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="18l-dG-w86"/>
                             <constraint firstItem="wt8-zD-Xlj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1VJ-OS-SfQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VPV-hv-IbL" secondAttribute="trailing" id="3Nu-gQ-bpd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i0I-My-Zbx" secondAttribute="bottom" constant="15" id="4AI-gc-0a6"/>
                             <constraint firstItem="pjq-0W-rIi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5rD-V4-27B"/>
                             <constraint firstItem="eQE-LZ-8vu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="6cc-YJ-Uag"/>
                             <constraint firstItem="eQE-LZ-8vu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8T9-MO-piI"/>
                             <constraint firstItem="HKk-i2-Wgp" firstAttribute="leading" secondItem="pjq-0W-rIi" secondAttribute="trailing" constant="70" id="AtK-Oq-gdo"/>
+                            <constraint firstItem="pjq-0W-rIi" firstAttribute="leading" secondItem="i0I-My-Zbx" secondAttribute="trailing" constant="30" id="BXT-oV-69R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jj5-nq-Jn7" secondAttribute="trailing" constant="10" id="DIG-KM-m0h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HKk-i2-Wgp" secondAttribute="bottom" constant="15" id="EjA-9V-Gae"/>
+                            <constraint firstItem="ay4-EL-rn2" firstAttribute="top" secondItem="Jj5-nq-Jn7" secondAttribute="bottom" constant="20" id="IFQ-pW-ott"/>
                             <constraint firstItem="8Tt-r4-esY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JPg-5A-xbJ"/>
                             <constraint firstItem="pjq-0W-rIi" firstAttribute="top" secondItem="EnA-de-N1N" secondAttribute="bottom" constant="85" id="NNc-mW-ORj"/>
                             <constraint firstItem="aNa-8B-an3" firstAttribute="top" secondItem="VPV-hv-IbL" secondAttribute="bottom" constant="10" id="SM3-z9-Bff"/>
@@ -91,6 +104,7 @@
                             <constraint firstItem="8Tt-r4-esY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eBj-CN-Btt"/>
                             <constraint firstItem="deO-bW-Uu0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="g4Z-DV-ple"/>
                             <constraint firstItem="VPV-hv-IbL" firstAttribute="top" secondItem="8Tt-r4-esY" secondAttribute="bottom" constant="10" id="gGz-kW-zNW"/>
+                            <constraint firstItem="ay4-EL-rn2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gff-NL-ALY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pjq-0W-rIi" secondAttribute="bottom" constant="10" id="ghL-rK-fFJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aNa-8B-an3" secondAttribute="trailing" id="j8b-Zh-cDb"/>
                             <constraint firstItem="EnA-de-N1N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ldE-Vd-VBL"/>
@@ -106,7 +120,9 @@
                         <outlet property="myImageView" destination="wt8-zD-Xlj" id="2GS-Ev-058"/>
                         <outlet property="myProgressView" destination="Jj5-nq-Jn7" id="baw-Dp-WSM"/>
                         <outlet property="mySearchBar" destination="8Tt-r4-esY" id="RhK-39-PRm"/>
+                        <outlet property="mySegmentControl" destination="i0I-My-Zbx" id="Br3-pl-yYK"/>
                         <outlet property="mySlider" destination="deO-bW-Uu0" id="p3b-4n-hGb"/>
+                        <outlet property="myStepper" destination="ay4-EL-rn2" id="lfJ-i8-PZG"/>
                         <outlet property="mySwitch" destination="HKk-i2-Wgp" id="fqQ-Q3-EpN"/>
                         <outlet property="myTextField" destination="VPV-hv-IbL" id="q0h-wq-G7Z"/>
                         <outlet property="myTextLabel" destination="eQE-LZ-8vu" id="HeH-LR-eFN"/>

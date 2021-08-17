@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet var myButton: UIButton!
     @IBOutlet var mySwitch: UISwitch!
     @IBOutlet var myActivityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet var myStepper: UIStepper!
+    @IBOutlet var mySegmentControl: UISegmentedControl!
     
     private let disposeBag = DisposeBag()
     
@@ -42,6 +44,43 @@ class ViewController: UIViewController {
 
 //MARK: - Test Various UI elements with Rx
 extension ViewController{
+    
+    func testStepper(){
+        //cahnge the slider value on pressing the stepper
+        myStepper.rx.value.subscribe(onNext: {
+            theValue in
+            let valueInFloat = Float(theValue)
+            print(valueInFloat)
+            self.myProgressView.progress = valueInFloat/100
+        }).disposed(by: disposeBag)
+    }
+    
+    func testSegmentControl(){
+        //changing the segment control will change the button background color
+        mySegmentControl.rx.selectedSegmentIndex.subscribe(onNext: {
+            theIndex in
+            switch theIndex{
+            case 0:
+                self.myButton.backgroundColor = .red
+            case 1:
+                self.myButton.backgroundColor = .blue
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    func testImageView(){
+        //add an image in the view asynchronously on a button tap
+        myButton.rx.controlEvent(.touchUpInside).subscribe(onNext: {
+            self.myActivityIndicatorView.startAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                self.myImageView.image = UIImage(named: "testImage.png")
+                self.myActivityIndicatorView.stopAnimating()
+            }
+            
+        }).disposed(by: disposeBag)
+    }
     
     func testSwitch(){
         mySwitch.rx.controlEvent(.valueChanged).withLatestFrom(mySwitch.rx.value).subscribe(onNext: {
@@ -80,7 +119,7 @@ extension ViewController{
 }
 
 
-
+//MARK: - Private Functions
 private extension ViewController{
     func validateString(temp : String) -> Bool{
         if temp.isEmpty{
