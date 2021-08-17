@@ -23,13 +23,22 @@ class ViewController: UIViewController {
     @IBOutlet var myActivityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var myStepper: UIStepper!
     @IBOutlet var mySegmentControl: UISegmentedControl!
+    @IBOutlet var myCollectionView: UICollectionView!
     
     private let disposeBag = DisposeBag()
+    
+    let myDataSource = BehaviorRelay<[String]>(value: ["house", "gear", "person.circle", "airplane", "bell"])
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerNibInMyCollectionView()
         
+        myDataSource.bind(to: myCollectionView.rx.items(cellIdentifier: "myCollectionViewCell", cellType: MyCollectionViewCell.self)){
+            indexPath, title, cell in
+            cell.myImageView.image = UIImage(systemName: title)
+        }.disposed(by: disposeBag)
         
         
         
@@ -121,6 +130,11 @@ extension ViewController{
 
 //MARK: - Private Functions
 private extension ViewController{
+    
+    func registerNibInMyCollectionView(){
+        myCollectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "myCollectionViewCell")
+    }
+    
     func validateString(temp : String) -> Bool{
         if temp.isEmpty{
             return false

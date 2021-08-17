@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014100AB26CBF35A000A07C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014100A926CBF35A000A07C1 /* MyCollectionViewCell.swift */; };
+		014100AC26CBF35A000A07C1 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014100AA26CBF35A000A07C1 /* MyCollectionViewCell.xib */; };
 		016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B626C50BBB004675C0 /* AppDelegate.swift */; };
 		016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B826C50BBB004675C0 /* SceneDelegate.swift */; };
 		016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66BA26C50BBB004675C0 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		014100A926CBF35A000A07C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		014100AA26CBF35A000A07C1 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		016E66B326C50BBB004675C0 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016E66B626C50BBB004675C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		016E66B826C50BBB004675C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				016E66BF26C50BC4004675C0 /* Assets.xcassets */,
 				016E66C126C50BC4004675C0 /* LaunchScreen.storyboard */,
 				016E66C426C50BC4004675C0 /* Info.plist */,
+				014100A926CBF35A000A07C1 /* MyCollectionViewCell.swift */,
+				014100AA26CBF35A000A07C1 /* MyCollectionViewCell.xib */,
 			);
 			path = RxSwiftDemo;
 			sourceTree = "<group>";
@@ -80,7 +86,6 @@
 				8C10006DF8DCE39E73BFB665 /* Pods-RxSwiftDemo.debug.xcconfig */,
 				7AEA722E7CCADCF5173DC411 /* Pods-RxSwiftDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,6 +158,7 @@
 			files = (
 				016E66C326C50BC4004675C0 /* LaunchScreen.storyboard in Resources */,
 				016E66C026C50BC4004675C0 /* Assets.xcassets in Resources */,
+				014100AC26CBF35A000A07C1 /* MyCollectionViewCell.xib in Resources */,
 				016E66BE26C50BBB004675C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +214,7 @@
 			files = (
 				016E66BB26C50BBB004675C0 /* ViewController.swift in Sources */,
 				016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */,
+				014100AB26CBF35A000A07C1 /* MyCollectionViewCell.swift in Sources */,
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
