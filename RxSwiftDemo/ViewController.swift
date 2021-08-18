@@ -34,7 +34,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
+        //M1
+        let obs1 = myStepper.rx.value.asObservable()
+        obs1.subscribe(onNext: {
+            temp in
+            print(temp)
+        }).disposed(by: disposeBag)
+        
         
         
     } //:viewDidLoad()
