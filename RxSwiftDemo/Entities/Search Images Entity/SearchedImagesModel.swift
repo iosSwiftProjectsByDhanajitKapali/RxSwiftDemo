@@ -22,3 +22,9 @@ struct URLS : Codable{
     let full : String
     let regular : String
 }
+
+
+//MARK: - Image Data Model
+struct ImageDataModel : Codable{
+    let imageData : Data
+}

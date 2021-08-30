@@ -44,8 +44,38 @@ class APIRequest: APIRequestProtocol {
             }
         }
     }
+    
+    func getdata(fromUrl: String) -> Observable<Data>{
+        
+        return Observable.create{ observer -> Disposable in
+            
+            //conver the URL String to URL
+            guard let baseURL = URL(string: fromUrl) else{
+                observer.onError(NetworkingError.URL_PARSING_ERROR)
+                return Disposables.create { }
+            }
+            
+            self.dataTask = self.session.dataTask(with: baseURL, completionHandler: { (data, response, error) in
+                
+                    if let data = data{
+                        observer.onNext(data)
+                    }else{
+                        observer.onError(NetworkingError.NO_DATA)
+                    }
+                    
+                
+                observer.onCompleted()
+            })
+            self.dataTask?.resume()
+            return Disposables.create {
+                self.dataTask?.cancel()
+            }
+            
+        }
+    }
 }
 
 enum NetworkingError : Error{
     case URL_PARSING_ERROR
+    case NO_DATA
 }

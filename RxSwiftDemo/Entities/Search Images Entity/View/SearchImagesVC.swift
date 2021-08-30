@@ -14,7 +14,7 @@ class SearchImagesVC: UIViewController {
     //MARK: - Private Variables
     private let disposeBag = DisposeBag()
     private let searchImagesViewModelInstance = SearchImagesViewModel()
-    private let imageUrlList = BehaviorRelay<[ImagesViewModel]>(value: [])
+    private let imagesArray = BehaviorRelay<[Data]>(value: [])
     
     
     //MARK: - IBOutlets
@@ -51,19 +51,22 @@ extension SearchImagesVC{
             theData in
             
             print(theData.count)
-            self.imageUrlList.accept(theData)
+            self.imagesArray.accept(theData)
             
         }, onError: { theError in
             print("Error Occured ->\(theError)")
         }).disposed(by: disposeBag)
         
+
+        
         
         //binding the data to the collection view
         imagesCollectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
-        imageUrlList.bind(to: imagesCollectionView.rx.items(cellIdentifier: "cell", cellType: MyCollectionViewCell.self)){
+        imagesArray.bind(to: imagesCollectionView.rx.items(cellIdentifier: "cell", cellType: MyCollectionViewCell.self)){
             indexPath, theData, cell in
             
-            cell.myImageView.image = UIImage(systemName: theData.imageUrl)
+        
+            cell.myImageView.image = UIImage(data: theData)
         }.disposed(by: disposeBag)
         
     }
