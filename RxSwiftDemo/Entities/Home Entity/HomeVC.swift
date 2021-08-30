@@ -7,13 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeVC: UIViewController {
 
+    @IBOutlet var searchImagesButton: UIButton!
+    @IBOutlet var signupButton: UIButton!
+    @IBOutlet var loginButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
 
 }
 
