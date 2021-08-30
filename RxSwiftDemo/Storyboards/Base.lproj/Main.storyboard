@@ -91,23 +91,39 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LM8-1o-zRB">
+                                <rect key="frame" x="0.0" y="153" width="414" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jhr-3m-Gi1">
+                                    <size key="itemSize" width="202" height="156"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zFO-1F-PgM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cJd-Hf-8a5" firstAttribute="leading" secondItem="zFO-1F-PgM" secondAttribute="leading" id="FpJ-MA-7da"/>
                             <constraint firstItem="cJd-Hf-8a5" firstAttribute="top" secondItem="zFO-1F-PgM" secondAttribute="top" constant="10" id="QFj-cl-JK4"/>
+                            <constraint firstItem="zFO-1F-PgM" firstAttribute="bottom" secondItem="LM8-1o-zRB" secondAttribute="bottom" id="oho-Bt-7vW"/>
+                            <constraint firstItem="zFO-1F-PgM" firstAttribute="trailing" secondItem="LM8-1o-zRB" secondAttribute="trailing" id="qk1-dE-VrN"/>
+                            <constraint firstItem="LM8-1o-zRB" firstAttribute="leading" secondItem="zFO-1F-PgM" secondAttribute="leading" id="upz-P5-JF8"/>
                             <constraint firstItem="cJd-Hf-8a5" firstAttribute="trailing" secondItem="zFO-1F-PgM" secondAttribute="trailing" id="vf1-aq-SL9"/>
+                            <constraint firstItem="LM8-1o-zRB" firstAttribute="top" secondItem="cJd-Hf-8a5" secondAttribute="bottom" constant="5" id="zcw-8X-DJc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HMM-xN-MX7"/>
                     <connections>
                         <outlet property="imageSearchBar" destination="cJd-Hf-8a5" id="6sQ-2M-UTB"/>
+                        <outlet property="imagesCollectionView" destination="LM8-1o-zRB" id="F9I-PU-j5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgj-mr-6WF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="-283"/>
+            <point key="canvasLocation" x="1666.6666666666667" y="-283.25892857142856"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="270-BG-9eY">
@@ -185,6 +201,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

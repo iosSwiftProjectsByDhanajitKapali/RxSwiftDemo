@@ -38,6 +38,7 @@ extension SearchImagesViewModel{
     
     func fetchImages(withName: String){
         urlString += withName
+        print(urlString)
         apiResponse = request.callAPI(forBaseUrlString: urlString, resultType: SearchedImagesModel.self)
         
         apiResponse?.subscribe(onNext: {

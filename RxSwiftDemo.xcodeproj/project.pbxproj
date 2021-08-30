@@ -13,6 +13,8 @@
 		0142BFF726DCD18E0041B18B /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF626DCD18E0041B18B /* ApiRequest.swift */; };
 		0142BFF926DCD25E0041B18B /* SearchImagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */; };
 		0142BFFB26DCD4530041B18B /* SearchedImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */; };
+		0142C00026DCFBEC0041B18B /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFFE26DCFBEC0041B18B /* MyCollectionViewCell.swift */; };
+		0142C00126DCFBEC0041B18B /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0142BFFF26DCFBEC0041B18B /* MyCollectionViewCell.xib */; };
 		016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B626C50BBB004675C0 /* AppDelegate.swift */; };
 		016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B826C50BBB004675C0 /* SceneDelegate.swift */; };
 		016E66BB26C50BBB004675C0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66BA26C50BBB004675C0 /* HomeVC.swift */; };
@@ -29,6 +31,8 @@
 		0142BFF626DCD18E0041B18B /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagesVM.swift; sourceTree = "<group>"; };
 		0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedImagesModel.swift; sourceTree = "<group>"; };
+		0142BFFE26DCFBEC0041B18B /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		0142BFFF26DCFBEC0041B18B /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		016E66B326C50BBB004675C0 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016E66B626C50BBB004675C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		016E66B826C50BBB004675C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 		0142BFEE26DCABDE0041B18B /* Search Images Entity */ = {
 			isa = PBXGroup;
 			children = (
-				0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */,
+				0142BFFC26DCFBBD0041B18B /* View */,
 				0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */,
 				0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */,
 			);
@@ -123,6 +127,24 @@
 				0142BFF626DCD18E0041B18B /* ApiRequest.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0142BFFC26DCFBBD0041B18B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0142BFFD26DCFBC80041B18B /* CustomCell */,
+				0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0142BFFD26DCFBC80041B18B /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				0142BFFE26DCFBEC0041B18B /* MyCollectionViewCell.swift */,
+				0142BFFF26DCFBEC0041B18B /* MyCollectionViewCell.xib */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		016E66AA26C50BBB004675C0 = {
@@ -234,6 +256,7 @@
 			files = (
 				016E66C326C50BC4004675C0 /* LaunchScreen.storyboard in Resources */,
 				016E66C026C50BC4004675C0 /* Assets.xcassets in Resources */,
+				0142C00126DCFBEC0041B18B /* MyCollectionViewCell.xib in Resources */,
 				016E66BE26C50BBB004675C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +316,7 @@
 				016E66BB26C50BBB004675C0 /* HomeVC.swift in Sources */,
 				016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */,
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
+				0142C00026DCFBEC0041B18B /* MyCollectionViewCell.swift in Sources */,
 				0142BFF726DCD18E0041B18B /* ApiRequest.swift in Sources */,
 				0142BFF926DCD25E0041B18B /* SearchImagesVM.swift in Sources */,
 				0142BFF226DCAD0E0041B18B /* LoginVC.swift in Sources */,
