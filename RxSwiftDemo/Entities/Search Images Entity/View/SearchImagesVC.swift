@@ -24,7 +24,8 @@ class SearchImagesVC: UIViewController {
 
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let queryText = imageSearchBar.text , !queryText.isEmpty{
-            searchImagesViewModelInstance.fetchImages(withName: queryText)
+            //searchImagesViewModelInstance.fetchImages(withName: queryText)
+            searchImagesViewModelInstance.getImages(withName: queryText)
         }
     }
 }
