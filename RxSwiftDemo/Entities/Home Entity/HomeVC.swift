@@ -17,6 +17,9 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchImagesButton.layer.cornerRadius = 20
+        signupButton.layer.cornerRadius = 20
+        loginButton.layer.cornerRadius = 20
     }
 
 }

@@ -10,10 +10,10 @@ import Foundation
 struct SearchedImagesModel : Codable{
     let total : Int
     let total_pages: Int
-    let results : [Result]
+    let results : [TheResult]
 }
 
-struct Result : Codable {
+struct TheResult : Codable {
     let id : String
     let urls : URLS
 }
@@ -24,7 +24,3 @@ struct URLS : Codable{
 }
 
 
-//MARK: - Image Data Model
-struct ImageDataModel : Codable{
-    let imageData : Data
-}

@@ -84,15 +84,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cJd-Hf-8a5">
-                                <rect key="frame" x="0.0" y="98" width="414" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="w18-io-IPd"/>
-                                </constraints>
+                            <searchBar contentMode="redraw" placeholder="Seach Images" translatesAutoresizingMaskIntoConstraints="NO" id="cJd-Hf-8a5">
+                                <rect key="frame" x="0.0" y="98" width="359" height="35"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LM8-1o-zRB">
-                                <rect key="frame" x="0.0" y="153" width="414" height="709"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jhr-3m-Gi1">
                                     <size key="itemSize" width="202" height="156"/>
@@ -102,16 +99,30 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb9-EM-zXo">
+                                <rect key="frame" x="364" y="88" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5Wg-lD-ARN"/>
+                                    <constraint firstAttribute="width" constant="50" id="N8u-2A-0DC"/>
+                                </constraints>
+                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BCb-1y-jpO" eventType="touchUpInside" id="15H-c2-Bga"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zFO-1F-PgM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LM8-1o-zRB" firstAttribute="top" secondItem="bb9-EM-zXo" secondAttribute="bottom" id="7yN-CS-0XG"/>
+                            <constraint firstItem="bb9-EM-zXo" firstAttribute="leading" secondItem="cJd-Hf-8a5" secondAttribute="trailing" constant="5" id="C8y-Cx-Zst"/>
                             <constraint firstItem="cJd-Hf-8a5" firstAttribute="leading" secondItem="zFO-1F-PgM" secondAttribute="leading" id="FpJ-MA-7da"/>
+                            <constraint firstItem="zFO-1F-PgM" firstAttribute="trailing" secondItem="bb9-EM-zXo" secondAttribute="trailing" id="M64-ME-I7S"/>
                             <constraint firstItem="cJd-Hf-8a5" firstAttribute="top" secondItem="zFO-1F-PgM" secondAttribute="top" constant="10" id="QFj-cl-JK4"/>
+                            <constraint firstItem="bb9-EM-zXo" firstAttribute="top" secondItem="zFO-1F-PgM" secondAttribute="top" id="kat-T8-4MC"/>
                             <constraint firstItem="zFO-1F-PgM" firstAttribute="bottom" secondItem="LM8-1o-zRB" secondAttribute="bottom" id="oho-Bt-7vW"/>
                             <constraint firstItem="zFO-1F-PgM" firstAttribute="trailing" secondItem="LM8-1o-zRB" secondAttribute="trailing" id="qk1-dE-VrN"/>
                             <constraint firstItem="LM8-1o-zRB" firstAttribute="leading" secondItem="zFO-1F-PgM" secondAttribute="leading" id="upz-P5-JF8"/>
-                            <constraint firstItem="cJd-Hf-8a5" firstAttribute="trailing" secondItem="zFO-1F-PgM" secondAttribute="trailing" id="vf1-aq-SL9"/>
                             <constraint firstItem="LM8-1o-zRB" firstAttribute="top" secondItem="cJd-Hf-8a5" secondAttribute="bottom" constant="5" id="zcw-8X-DJc"/>
                         </constraints>
                     </view>
@@ -201,6 +212,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

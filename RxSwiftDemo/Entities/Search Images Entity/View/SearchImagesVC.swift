@@ -22,6 +22,11 @@ class SearchImagesVC: UIViewController {
     @IBOutlet var imagesCollectionView: UICollectionView!
     
 
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        if let queryText = imageSearchBar.text , !queryText.isEmpty{
+            searchImagesViewModelInstance.fetchImages(withName: queryText)
+        }
+    }
 }
 
 //MARK: - Lifecycle methods
@@ -31,9 +36,7 @@ extension SearchImagesVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        searchImagesViewModelInstance.fetchImages(withName: "car")
-        
+
         
         bindUI()
         
@@ -50,7 +53,7 @@ extension SearchImagesVC{
         searchImagesViewModelInstance.imagesViewModelObserver.subscribe(onNext: {
             theData in
             
-            print(theData.count)
+            print("Image Data count -> \(theData.count)")
             self.imagesArray.accept(theData)
             
         }, onError: { theError in
@@ -64,8 +67,6 @@ extension SearchImagesVC{
         imagesCollectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
         imagesArray.bind(to: imagesCollectionView.rx.items(cellIdentifier: "cell", cellType: MyCollectionViewCell.self)){
             indexPath, theData, cell in
-            
-        
             cell.myImageView.image = UIImage(data: theData)
         }.disposed(by: disposeBag)
         

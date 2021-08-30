@@ -8,6 +8,6 @@ target 'RxSwiftDemo' do
   # Pods for RxSwiftDemo
 	pod 'RxSwift'
 	pod 'RxCocoa'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~>10'
   
 end
