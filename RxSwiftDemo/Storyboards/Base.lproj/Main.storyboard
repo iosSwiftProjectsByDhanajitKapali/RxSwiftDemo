@@ -83,10 +83,27 @@
                     <view key="view" contentMode="scaleToFill" id="Ide-pM-l7g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cJd-Hf-8a5">
+                                <rect key="frame" x="0.0" y="98" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="w18-io-IPd"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zFO-1F-PgM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cJd-Hf-8a5" firstAttribute="leading" secondItem="zFO-1F-PgM" secondAttribute="leading" id="FpJ-MA-7da"/>
+                            <constraint firstItem="cJd-Hf-8a5" firstAttribute="top" secondItem="zFO-1F-PgM" secondAttribute="top" constant="10" id="QFj-cl-JK4"/>
+                            <constraint firstItem="cJd-Hf-8a5" firstAttribute="trailing" secondItem="zFO-1F-PgM" secondAttribute="trailing" id="vf1-aq-SL9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HMM-xN-MX7"/>
+                    <connections>
+                        <outlet property="imageSearchBar" destination="cJd-Hf-8a5" id="6sQ-2M-UTB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgj-mr-6WF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,8 +116,20 @@
                     <view key="view" contentMode="scaleToFill" id="sJg-Gg-7Fv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-QQ-mny">
+                                <rect key="frame" x="176" y="98" width="62" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uel-LD-f1d"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xc5-QQ-mny" firstAttribute="centerX" secondItem="sJg-Gg-7Fv" secondAttribute="centerX" id="HoK-vL-031"/>
+                            <constraint firstItem="xc5-QQ-mny" firstAttribute="top" secondItem="uel-LD-f1d" secondAttribute="top" constant="10" id="KZX-Y9-McZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iRC-8A-wk2"/>
                 </viewController>
@@ -115,8 +144,20 @@
                     <view key="view" contentMode="scaleToFill" id="pXa-fS-O7z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-EF-R2Z">
+                                <rect key="frame" x="169" y="98" width="76" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uVR-ym-ycA"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gpm-EF-R2Z" firstAttribute="centerX" secondItem="pXa-fS-O7z" secondAttribute="centerX" id="Nmy-PJ-Zq2"/>
+                            <constraint firstItem="gpm-EF-R2Z" firstAttribute="top" secondItem="uVR-ym-ycA" secondAttribute="top" constant="10" id="qyn-Kq-v4e"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sTy-18-KvA"/>
                 </viewController>

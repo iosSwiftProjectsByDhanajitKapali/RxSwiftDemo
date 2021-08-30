@@ -10,6 +10,9 @@
 		0142BFF026DCACFE0041B18B /* SearchImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */; };
 		0142BFF226DCAD0E0041B18B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF126DCAD0E0041B18B /* LoginVC.swift */; };
 		0142BFF426DCAD220041B18B /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF326DCAD220041B18B /* SignupVC.swift */; };
+		0142BFF726DCD18E0041B18B /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF626DCD18E0041B18B /* ApiRequest.swift */; };
+		0142BFF926DCD25E0041B18B /* SearchImagesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */; };
+		0142BFFB26DCD4530041B18B /* SearchedImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */; };
 		016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B626C50BBB004675C0 /* AppDelegate.swift */; };
 		016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B826C50BBB004675C0 /* SceneDelegate.swift */; };
 		016E66BB26C50BBB004675C0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66BA26C50BBB004675C0 /* HomeVC.swift */; };
@@ -23,6 +26,9 @@
 		0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagesVC.swift; sourceTree = "<group>"; };
 		0142BFF126DCAD0E0041B18B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0142BFF326DCAD220041B18B /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		0142BFF626DCD18E0041B18B /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagesVM.swift; sourceTree = "<group>"; };
+		0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedImagesModel.swift; sourceTree = "<group>"; };
 		016E66B326C50BBB004675C0 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016E66B626C50BBB004675C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		016E66B826C50BBB004675C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +111,18 @@
 			isa = PBXGroup;
 			children = (
 				0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */,
+				0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */,
+				0142BFFA26DCD4530041B18B /* SearchedImagesModel.swift */,
 			);
 			path = "Search Images Entity";
+			sourceTree = "<group>";
+		};
+		0142BFF526DCD1720041B18B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0142BFF626DCD18E0041B18B /* ApiRequest.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		016E66AA26C50BBB004675C0 = {
@@ -130,6 +146,7 @@
 		016E66B526C50BBB004675C0 /* RxSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0142BFF526DCD1720041B18B /* Networking */,
 				0142BFE826DCAB840041B18B /* App Lifecycle */,
 				0142BFEA26DCABA70041B18B /* Entities */,
 				0142BFE926DCAB980041B18B /* Storyboards */,
@@ -271,10 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0142BFF426DCAD220041B18B /* SignupVC.swift in Sources */,
+				0142BFFB26DCD4530041B18B /* SearchedImagesModel.swift in Sources */,
 				0142BFF026DCACFE0041B18B /* SearchImagesVC.swift in Sources */,
 				016E66BB26C50BBB004675C0 /* HomeVC.swift in Sources */,
 				016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */,
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
+				0142BFF726DCD18E0041B18B /* ApiRequest.swift in Sources */,
+				0142BFF926DCD25E0041B18B /* SearchImagesVM.swift in Sources */,
 				0142BFF226DCAD0E0041B18B /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
