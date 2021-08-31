@@ -21,6 +21,7 @@ struct TheResult : Codable {
 struct URLS : Codable{
     let full : String
     let regular : String
+    let thumb : String
 }
 
 

@@ -13,9 +13,10 @@ class SearchImagesVC: UIViewController {
 
     //MARK: - Private Variables
     private let disposeBag = DisposeBag()
-    private let searchImagesViewModelInstance = SearchImagesViewModel()
-    private let imagesArray = BehaviorRelay<[Data]>(value: [])
     
+    let searchImagesViewModelInstance = SearchImagesViewModel()
+    let imagesArray = BehaviorRelay<[Data]>(value: [])
+    var searchQuery : String = ""
     
     //MARK: - IBOutlets
     @IBOutlet var imageSearchBar: UISearchBar!
@@ -26,6 +27,7 @@ class SearchImagesVC: UIViewController {
         if let queryText = imageSearchBar.text , !queryText.isEmpty{
             //searchImagesViewModelInstance.fetchImages(withName: queryText)
             searchImagesViewModelInstance.getImages(withName: queryText)
+            searchQuery = queryText
             imageSearchBar.text = ""
         }
     }
@@ -38,7 +40,7 @@ extension SearchImagesVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        initialSetup()
         
         bindUI()
         
@@ -48,6 +50,10 @@ extension SearchImagesVC {
 
 //MARK: - Private Functions
 extension SearchImagesVC{
+    
+    func initialSetup(){
+        self.imagesCollectionView.delegate = self
+    }
     
     func bindUI(){
         
@@ -73,7 +79,6 @@ extension SearchImagesVC{
         }.disposed(by: disposeBag)
         
     }
-    
-    
+
     
 }

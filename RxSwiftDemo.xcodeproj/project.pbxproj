@@ -20,6 +20,7 @@
 		0142C00826DD21FC0041B18B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C00726DD21FC0041B18B /* Constants.swift */; };
 		0142C00B26DD27870041B18B /* RealmImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C00A26DD27870041B18B /* RealmImagesModel.swift */; };
 		0142C00D26DD2B220041B18B /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C00C26DD2B220041B18B /* ImagesModel.swift */; };
+		0142C01026DDF9080041B18B /* SearchImagesVCExtensionForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0142C00F26DDF9080041B18B /* SearchImagesVCExtensionForCollectionView.swift */; };
 		016E66B726C50BBB004675C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B626C50BBB004675C0 /* AppDelegate.swift */; };
 		016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66B826C50BBB004675C0 /* SceneDelegate.swift */; };
 		016E66BB26C50BBB004675C0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016E66BA26C50BBB004675C0 /* HomeVC.swift */; };
@@ -43,6 +44,7 @@
 		0142C00726DD21FC0041B18B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0142C00A26DD27870041B18B /* RealmImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmImagesModel.swift; sourceTree = "<group>"; };
 		0142C00C26DD2B220041B18B /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
+		0142C00F26DDF9080041B18B /* SearchImagesVCExtensionForCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImagesVCExtensionForCollectionView.swift; sourceTree = "<group>"; };
 		016E66B326C50BBB004675C0 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016E66B626C50BBB004675C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		016E66B826C50BBB004675C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0142BFFC26DCFBBD0041B18B /* View */,
-				0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */,
+				0142C00E26DDF8030041B18B /* ViewModel */,
 				0142C00926DD275D0041B18B /* Models */,
 			);
 			path = "Search Images Entity";
@@ -144,6 +146,7 @@
 			children = (
 				0142BFFD26DCFBC80041B18B /* CustomCell */,
 				0142BFEF26DCACFE0041B18B /* SearchImagesVC.swift */,
+				0142C00F26DDF9080041B18B /* SearchImagesVCExtensionForCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +177,14 @@
 				0142C00C26DD2B220041B18B /* ImagesModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0142C00E26DDF8030041B18B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0142BFF826DCD25E0041B18B /* SearchImagesVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		016E66AA26C50BBB004675C0 = {
@@ -350,6 +361,7 @@
 				016E66B926C50BBB004675C0 /* SceneDelegate.swift in Sources */,
 				0142C00826DD21FC0041B18B /* Constants.swift in Sources */,
 				0142C00026DCFBEC0041B18B /* MyCollectionViewCell.swift in Sources */,
+				0142C01026DDF9080041B18B /* SearchImagesVCExtensionForCollectionView.swift in Sources */,
 				0142BFF726DCD18E0041B18B /* ApiRequest.swift in Sources */,
 				0142BFF926DCD25E0041B18B /* SearchImagesVM.swift in Sources */,
 				0142C00B26DD27870041B18B /* RealmImagesModel.swift in Sources */,
