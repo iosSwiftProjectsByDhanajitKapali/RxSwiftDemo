@@ -46,62 +46,30 @@ extension SearchImagesViewModel{
     
     func getImages(withName : String){
         
-        var flag = 0;
-        
-        //Check for the images in LocalDataBase
         DispatchQueue.main.async { [self] in
             
-            //get all the stored categories
-            self.realmImageCategoryArray = self.realm.objects(RealmImageCategory.self)
             
-            //create a new image Category
-            let newImageCategory = RealmImageCategory()
-            newImageCategory.imageCategoryName = withName
+            //Check for the images in LocalDataBase
+            imageArray = []
+            let isImagesStored = getStoredImages(withName)
             
-            if let realmImageCategoryArray = realmImageCategoryArray{
-                
-                //check if this newly created catrgory is already saved in the database or not
-                if realmImageCategoryArray.count > 0{
-                    for i in 0...realmImageCategoryArray.count-1{
-                        if realmImageCategoryArray[i].imageCategoryName == newImageCategory.imageCategoryName{
-                            //image Category already there in RealmDB
-                            //Got the required imageData
-                            let realmImageCategory = realmImageCategoryArray[i]
-                            if realmImageCategory.images.count > 0{
-                                imageArray = []
-                                flag = 0
-                                for i in 0...realmImageCategory.images.count-1{
-                                    //get all the images
-                                    imageArray.append(realmImageCategory.images[i].imageData)
-                                }
-                                imagesViewModel.accept(imageArray)
-                                return
-                            }
-                            
-                        }else{
-                            flag = 1
-                        }
-                    }
-                }else{
-                    flag = 1
-                }
-                
-            }
-            
-            //No image Found in the LocalDB, so fetch it via API call
-            if flag == 1{
+            if isImagesStored{
+                //Images already stored
+            }else{
+                //Image not stored in database,So call api to get new Images
+                imageArray = []
                 fetchImages(withName: withName)
             }
-
-            
-        } //:DispatchQueue.main.async
+        }
         
     }
     
     func getMoreImages(withName : String){
         fetchImages(withName: withName)
         
-        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [self] in
+            getStoredImages(withName)
+        }
     }
     
 }
@@ -133,8 +101,8 @@ private extension SearchImagesViewModel{
             //parse the data from api
             if apiResponseData.results.count > 0{
                 //remove the previous images from data source
-                self.imageArray = []
-                self.imagesViewModel.accept(self.imageArray)
+                //self.imageArray = []
+                //self.imagesViewModel.accept(self.imageArray)
                 
                 for i in 0...apiResponseData.results.count-1{
                     let urlString = apiResponseData.results[i].urls.thumb
@@ -245,25 +213,63 @@ private extension SearchImagesViewModel{
             print(theError)
         }).disposed(by: disposeBag)
         
-        getStoredImages(ofCategory: ofCategory)
         
     } //:fetchImage()
     
     
-    func getStoredImages(ofCategory : RealmImageCategory){
+    func getStoredImages(withCategoryName : String) -> Bool{
         
-        DispatchQueue.main.async { [self] in
-            let imagesData = ofCategory.images.sorted(byKeyPath: "imageTitle")
-            
-            if imagesData.count > 0{
-                for i in 0...imagesData.count {
-                    
-                    imageArray.append(imagesData[i].imageData)
-                }
-                imagesViewModel.accept(imageArray)
+        //create a new image Category
+        let theImageCategory = RealmImageCategory()
+        theImageCategory.imageCategoryName = withCategoryName
+        
+        let imagesData = theImageCategory.images.sorted(byKeyPath: "imageTitle")
+        
+        if imagesData.count > 0{
+            for i in 0...imagesData.count {
+                
+                imageArray.append(imagesData[i].imageData)
             }
+            imagesViewModel.accept(imageArray)
+            return true
         }
         
+        return false
+    }
+    
+    func getStoredImages(_ ofCategoryName : String) -> Bool{
         
+        //create a new image Category
+        let theImageCategory = RealmImageCategory()
+        theImageCategory.imageCategoryName = ofCategoryName
+        
+        //Get all the sored categories
+        let realmCategoryArray = realm.objects(RealmImageCategory.self)
+        if realmCategoryArray.count > 0{
+            
+            //check for the required category
+            for i in 0...realmCategoryArray.count-1 {
+                let realmCategory = realmCategoryArray[i]
+                
+                //found the required category
+                if realmCategory.imageCategoryName == theImageCategory.imageCategoryName{
+                    
+                    //get all the images from this category
+                    let imageDataArray = realmCategory.images
+                    if imageDataArray.count > 0{
+                        for i in 0...imageDataArray.count-1 {
+                            let imageData = imageDataArray[i]
+                            imageArray.append(imageData.imageData)
+                        }
+                        imagesViewModel.accept(imageArray)
+                        return true
+                    }
+                }
+                
+            }
+            
+        }
+        
+        return false
     }
 }
