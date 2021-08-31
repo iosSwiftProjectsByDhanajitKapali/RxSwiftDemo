@@ -26,6 +26,7 @@ class SearchImagesVC: UIViewController {
         if let queryText = imageSearchBar.text , !queryText.isEmpty{
             //searchImagesViewModelInstance.fetchImages(withName: queryText)
             searchImagesViewModelInstance.getImages(withName: queryText)
+            imageSearchBar.text = ""
         }
     }
 }

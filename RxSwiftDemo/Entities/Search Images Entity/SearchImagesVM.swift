@@ -44,32 +44,63 @@ extension SearchImagesViewModel{
     
     func getImages(withName : String){
         
-        //Check for the images in LocalDataBase
-        DispatchQueue.main.async {
-            self.realmImageCategoryArray = self.realm.objects(RealmImageCategory.self)
-        }
-        if let realmImagesArray = realmImageCategoryArray {
-            if realmImagesArray.count > 0{
-                
-                //Got the required imageData
-                for i in 0...realmImagesArray[0].images.count-1{
-                    //get all the images
-                    imageArray.append(realmImagesArray[0].images[i].imageData)
-                }
-                imagesViewModel.accept(imageArray)
-                return
-            }
-        }
+        var flag = 0;
         
-        //No image Found in the LocalDB, so fetch it via API call
-        fetchImages(withName: withName)
+        //Check for the images in LocalDataBase
+        DispatchQueue.main.async { [self] in
+            
+            //get all the stored categories
+            self.realmImageCategoryArray = self.realm.objects(RealmImageCategory.self)
+            
+            //create a new image Category
+            let newImageCategory = RealmImageCategory()
+            newImageCategory.imageCategoryName = withName
+            
+            if let realmImageCategoryArray = realmImageCategoryArray{
+                
+                //check if this newly created catrgory is already saved in the database or not
+                if realmImageCategoryArray.count > 0{
+                    for i in 0...realmImageCategoryArray.count-1{
+                        if realmImageCategoryArray[i].imageCategoryName == newImageCategory.imageCategoryName{
+                            //image Category already there in RealmDB
+                            //Got the required imageData
+                            let realmImageCategory = realmImageCategoryArray[i]
+                            if realmImageCategory.images.count > 0{
+                                imageArray = []
+                                flag = 0
+                                for i in 0...realmImageCategory.images.count-1{
+                                    //get all the images
+                                    imageArray.append(realmImageCategory.images[i].imageData)
+                                }
+                                imagesViewModel.accept(imageArray)
+                                return
+                            }
+                            
+                        }else{
+                            flag = 1
+                        }
+                    }
+                }else{
+                    flag = 1
+                }
+                
+            }
+            
+            //No image Found in the LocalDB, so fetch it via API call
+            if flag == 1{
+                fetchImages(withName: withName)
+            }
+
+            
+        } //:DispatchQueue.main.async
+        
     }
     
     ///Use this method to fetch imageData for some image name
     func fetchImages(withName: String){
-        urlString += withName
-        print(urlString)
-        imagesDataFromApi = request.callAPI(forBaseUrlString: urlString, resultType: SearchedImagesModel.self)
+        let theUrl = urlString + withName
+        print(theUrl)
+        imagesDataFromApi = request.callAPI(forBaseUrlString: theUrl, resultType: SearchedImagesModel.self)
         
         imagesDataFromApi?.subscribe(onNext: {
             apiResponseData in
@@ -90,12 +121,19 @@ extension SearchImagesViewModel{
             
             
             //parse the data from api
-            for i in 0...apiResponseData.results.count-1{
-                let urlString = apiResponseData.results[i].urls.regular
-                    
-                //Download each image
-                self.fetchImage(withUrlString: urlString, ofCategory: newImageCategory)
+            if apiResponseData.results.count > 0{
+                //remove the previous images from data source
+                self.imageArray = []
+                self.imagesViewModel.accept(self.imageArray)
+                
+                for i in 0...apiResponseData.results.count-1{
+                    let urlString = apiResponseData.results[i].urls.regular
+                        
+                    //Download each image
+                    self.fetchImage(withUrlString: urlString, ofCategory: newImageCategory)
+                }
             }
+
             
         }, onError: { (error) in
             print(error.localizedDescription)
