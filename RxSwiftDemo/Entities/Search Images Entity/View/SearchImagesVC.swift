@@ -23,6 +23,11 @@ class SearchImagesVC: UIViewController {
     @IBOutlet var imagesCollectionView: UICollectionView!
     
 
+    //MARK: - IBActions
+    @IBAction func MoreImagesButtonPressed(_ sender: UIBarButtonItem) {
+        searchImagesViewModelInstance.getMoreImages(withName: searchQuery)
+    }
+    
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let queryText = imageSearchBar.text , !queryText.isEmpty{
             //searchImagesViewModelInstance.fetchImages(withName: queryText)
@@ -31,6 +36,8 @@ class SearchImagesVC: UIViewController {
             imageSearchBar.text = ""
         }
     }
+    
+    
 }
 
 //MARK: - Lifecycle methods

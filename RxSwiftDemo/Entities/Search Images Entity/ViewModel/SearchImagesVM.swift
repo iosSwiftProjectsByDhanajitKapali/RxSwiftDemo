@@ -69,9 +69,9 @@ extension SearchImagesViewModel{
     func getMoreImages(withName : String){
         fetchImages(withName: withName)
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [self] in
-            let  _ = getStoredImages(withName)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now()+3) { [self] in
+//            let  _ = getStoredImages(withName)
+//        }
     }
     
 }
@@ -124,10 +124,8 @@ private extension SearchImagesViewModel{
     func getPageNo(forCategoryName : String) -> Int{
         var savedPageNo : Int?
         savedPageNo = userDefaults.integer(forKey: forCategoryName)
-        if let theSavedPageNo = savedPageNo {
-            if theSavedPageNo == 0{
-                savedPageNo! += 1
-            }
+        if let _ = savedPageNo {
+            savedPageNo! += 1
         }
         //store the CategoryName with its pageNo in UserDefaults
         userDefaults.setValue(savedPageNo, forKey: forCategoryName)
@@ -198,10 +196,6 @@ private extension SearchImagesViewModel{
         }, onError: {
             theError in
             print(theError)
-        }, onCompleted: { [self] in
-            
-            //getStoredImages(ofCategory.imageCategoryName)
-            
         }).disposed(by: disposeBag)
         
         

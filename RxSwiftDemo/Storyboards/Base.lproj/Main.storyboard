@@ -126,7 +126,13 @@
                             <constraint firstItem="LM8-1o-zRB" firstAttribute="top" secondItem="cJd-Hf-8a5" secondAttribute="bottom" constant="5" id="zcw-8X-DJc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HMM-xN-MX7"/>
+                    <navigationItem key="navigationItem" id="HMM-xN-MX7">
+                        <barButtonItem key="rightBarButtonItem" title="More" id="gSg-DQ-ZAA">
+                            <connections>
+                                <action selector="MoreImagesButtonPressed:" destination="BCb-1y-jpO" id="tUL-Yw-0s4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageSearchBar" destination="cJd-Hf-8a5" id="6sQ-2M-UTB"/>
                         <outlet property="imagesCollectionView" destination="LM8-1o-zRB" id="F9I-PU-j5t"/>
