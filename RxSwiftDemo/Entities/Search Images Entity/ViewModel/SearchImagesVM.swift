@@ -22,7 +22,7 @@ class SearchImagesViewModel {
     private let disposeBag = DisposeBag()
     private let dbManager = DBManager.shared
     private let request = APIRequest()
-    private var urlString = "https://api.unsplash.com/search/photos?per_page=5&client_id=2Fi9NCnEw5unBwaeyEkN-VWr0Q7niaViO1jKoeGa0D4"
+    private var urlString = "https://api.unsplash.com/search/photos?per_page=3&client_id=2Fi9NCnEw5unBwaeyEkN-VWr0Q7niaViO1jKoeGa0D4"
     private var imagesDataFromApi : Observable<SearchedImagesModel>?
     private var imageDataFromApi : Observable<Data>?
     
@@ -57,9 +57,9 @@ extension SearchImagesViewModel{
                 imageArray = []
                 fetchImages(withName: withName)
                 
-//                DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
-//                    getStoredImages(withName)
-//                }
+                DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
+                    getStoredImages(withName)
+                }
             }
         }
         
@@ -200,7 +200,7 @@ private extension SearchImagesViewModel{
             print(theError)
         }, onCompleted: { [self] in
             
-            getStoredImages(ofCategory.imageCategoryName)
+            //getStoredImages(ofCategory.imageCategoryName)
             
         }).disposed(by: disposeBag)
         
