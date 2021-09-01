@@ -22,7 +22,7 @@ class SearchImagesViewModel {
     private let disposeBag = DisposeBag()
     private let dbManager = DBManager.shared
     private let request = APIRequest()
-    private var urlString = "https://api.unsplash.com/search/photos?per_page=15&client_id=2Fi9NCnEw5unBwaeyEkN-VWr0Q7niaViO1jKoeGa0D4"
+    private var urlString = "https://api.unsplash.com/search/photos?per_page=5&client_id=2Fi9NCnEw5unBwaeyEkN-VWr0Q7niaViO1jKoeGa0D4"
     private var imagesDataFromApi : Observable<SearchedImagesModel>?
     private var imageDataFromApi : Observable<Data>?
     
@@ -46,21 +46,23 @@ extension SearchImagesViewModel{
     
     func getImages(withName : String){
         
-        DispatchQueue.main.async { [self] in
+        //Check for the images in LocalDataBase
+        imageArray = []
+        getStoredImages(withName)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [self] in
             
-            
-            //Check for the images in LocalDataBase
-            imageArray = []
-            let isImagesStored = getStoredImages(withName)
-            
-            if isImagesStored{
-                //Images already stored
-            }else{
+            if imageArray.count == 0{
                 //Image not stored in database,So call api to get new Images
                 imageArray = []
                 fetchImages(withName: withName)
+                
+//                DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
+//                    getStoredImages(withName)
+//                }
             }
         }
+        
         
     }
     
@@ -68,7 +70,7 @@ extension SearchImagesViewModel{
         fetchImages(withName: withName)
         
         DispatchQueue.main.asyncAfter(deadline: .now()+2) { [self] in
-            getStoredImages(withName)
+            let  _ = getStoredImages(withName)
         }
     }
     
@@ -96,13 +98,11 @@ private extension SearchImagesViewModel{
             apiResponseData in
             
             
+            //Create and store the category in the Local Storage
             let theCategory = self.saveNewCategoryInDB(withName: withName)
             
             //parse the data from api
             if apiResponseData.results.count > 0{
-                //remove the previous images from data source
-                //self.imageArray = []
-                //self.imagesViewModel.accept(self.imageArray)
                 
                 for i in 0...apiResponseData.results.count-1{
                     let urlString = apiResponseData.results[i].urls.thumb
@@ -119,6 +119,8 @@ private extension SearchImagesViewModel{
         }).disposed(by: disposeBag)
     }
     
+    
+    ///Use this method to get the PageNo for the required Category
     func getPageNo(forCategoryName : String) -> Int{
         var savedPageNo : Int?
         savedPageNo = userDefaults.integer(forKey: forCategoryName)
@@ -133,6 +135,8 @@ private extension SearchImagesViewModel{
         return savedPageNo!
     }
     
+    
+    ///Use thie method to creat and store a new RealmImageCategory if its not already present in the Local Storage
     func saveNewCategoryInDB(withName : String) -> RealmImageCategory{
         var categoryToBeReturned : RealmImageCategory
         
@@ -189,87 +193,76 @@ private extension SearchImagesViewModel{
             theData in
             
             //Store the Images in Local DataBase
-            DispatchQueue.main.async {
-                do{
-                    try self.realm.write{
-                        let newImage = RealmImage()
-                        newImage.imageTitle = andImageID
-                        newImage.imageData = theData
-                        
-                        ofCategory.images.append(newImage)
-                    }
-                }catch{
-                    print("Error saving new Image\(error)")
-                }
-            }
-            
-            //Populate the BehaviourRelay
-            //imageArray.append(theData)
-            //imagesViewModel.accept(imageArray)
-            
+            storeImageInDB(ofImageID: andImageID, andData: theData, ofCategory: ofCategory)
             
         }, onError: {
             theError in
             print(theError)
+        }, onCompleted: { [self] in
+            
+            getStoredImages(ofCategory.imageCategoryName)
+            
         }).disposed(by: disposeBag)
         
         
     } //:fetchImage()
     
     
-    func getStoredImages(withCategoryName : String) -> Bool{
-        
-        //create a new image Category
-        let theImageCategory = RealmImageCategory()
-        theImageCategory.imageCategoryName = withCategoryName
-        
-        let imagesData = theImageCategory.images.sorted(byKeyPath: "imageTitle")
-        
-        if imagesData.count > 0{
-            for i in 0...imagesData.count {
-                
-                imageArray.append(imagesData[i].imageData)
-            }
-            imagesViewModel.accept(imageArray)
-            return true
-        }
-        
-        return false
-    }
-    
-    func getStoredImages(_ ofCategoryName : String) -> Bool{
-        
-        //create a new image Category
-        let theImageCategory = RealmImageCategory()
-        theImageCategory.imageCategoryName = ofCategoryName
-        
-        //Get all the sored categories
-        let realmCategoryArray = realm.objects(RealmImageCategory.self)
-        if realmCategoryArray.count > 0{
-            
-            //check for the required category
-            for i in 0...realmCategoryArray.count-1 {
-                let realmCategory = realmCategoryArray[i]
-                
-                //found the required category
-                if realmCategory.imageCategoryName == theImageCategory.imageCategoryName{
+    ///Use this method to Store images in the Local Storage
+    func storeImageInDB(ofImageID : String, andData : Data, ofCategory : RealmImageCategory){
+        DispatchQueue.main.async {
+            do{
+                try self.realm.write{
+                    let newImage = RealmImage()
+                    newImage.imageTitle = ofImageID
+                    newImage.imageData = andData
                     
-                    //get all the images from this category
-                    let imageDataArray = realmCategory.images
-                    if imageDataArray.count > 0{
-                        for i in 0...imageDataArray.count-1 {
-                            let imageData = imageDataArray[i]
-                            imageArray.append(imageData.imageData)
+                    ofCategory.images.append(newImage)
+                }
+            }catch{
+                print("Error saving new Image\(error)")
+            }
+        }
+    } //:storeImageInDB()
+    
+    
+    ///Use this method to Fetch images from the Local Storage
+    func getStoredImages(_ ofCategoryName : String){
+        
+        //accessing DB from Main thread
+        DispatchQueue.main.async { [self] in
+
+            //create a new image Category
+            let theImageCategory = RealmImageCategory()
+            theImageCategory.imageCategoryName = ofCategoryName
+            
+            //Get all the sored categories
+            let realmCategoryArray = realm.objects(RealmImageCategory.self)
+            if realmCategoryArray.count > 0{
+                
+                //check for the required category
+                for i in 0...realmCategoryArray.count-1 {
+                    let realmCategory = realmCategoryArray[i]
+                    
+                    //found the required category
+                    if realmCategory.imageCategoryName == theImageCategory.imageCategoryName{
+                        
+                        //get all the images from this category
+                        let imageDataArray = realmCategory.images
+                        if imageDataArray.count > 0{
+                            for i in 0...imageDataArray.count-1 {
+                                let imageData = imageDataArray[i]
+                                imageArray.append(imageData.imageData)
+                            }
+                            imagesViewModel.accept(imageArray)
+                           
                         }
-                        imagesViewModel.accept(imageArray)
-                        return true
                     }
+                    
                 }
                 
             }
-            
         }
         
-        return false
-    }
+    } //:getStoredImages()
 }
